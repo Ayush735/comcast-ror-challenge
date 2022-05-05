@@ -25,6 +25,22 @@ Modify the Blending module such as after a model is saved into the database a me
 
 **Restrictions**: you are not allowed to modify the code of any of the ActiveRecord models.
 
+**Solution**
+Go into root folder
+
+```
+cd comcast-ror-challenge
+
+Orange.new(variety: 'Nagpuri')
+
+# after save callback will not execute
+
+Apple.new(variety: 'Kashmiri')
+
+# after save callback will execute & will print the message  '--- ** -- Juice is ready -- ** ---'
+
+```
+
 #### Task 2 - Collections
 
 You are given an SQL database consisting of two tables `baskets` and `apples`. One `basket` can have many `apples` or can have no apples. The database is pre-filled with 50 baskets each having a capacity between 2 and 27, inclusive.
@@ -60,6 +76,22 @@ Write a rake task `add_apple_to_basket` that accepts two arguments, `variety` an
 3. Whenever a basket has a new apple, the `fill_rate` should be re-calculated as a percentage of the count of the associated records divided by the capacity of the basket.
 4. If the selected basket is full, the remainder of apples should be carried over to the next basket.
 5. If no baskets are available, the rake task should output the next message as a standard output: `"All baskets are full. We couldn't find the place for \[X\] apples"`
+
+**Solution**
+
+First create 50 baskets each having a capacity between 2 and 27, inclusive.
+
+```
+rake db:seed to prefilled baskets
+
+```
+
+execute below rake task to add apples into baskets with variety & capacity
+
+```
+rake apple:add_apple_to_basket['Kashmiri',555]
+
+```
 
 #### Task 3 - Objects, objects, objects! (Advanced level)
 
