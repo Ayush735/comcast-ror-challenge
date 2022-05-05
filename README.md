@@ -27,15 +27,13 @@ Modify the Blending module such as after a model is saved into the database a me
 
 **---------------------------------Solution-----------------------------------------------------------**
 
-Go into root folder
-
-Step 1
+Step 1 : Go into root folder
 
 ```
 cd comcast-ror-challenge
 ```
 
-Step 2
+Step 2 : Create a object of Orange class
 
 ```
 Orange.create(variety: 'Nagpuri')
@@ -43,7 +41,7 @@ Orange.create(variety: 'Nagpuri')
 
 See after_save callback will not executed
 
-Step 3
+Step 3 : Create a object of Apple class
 
 ```
 Apple.create(variety: 'Kashmiri')
@@ -89,21 +87,16 @@ Write a rake task `add_apple_to_basket` that accepts two arguments, `variety` an
 
 **---------------------------------Solution-----------------------------------------------------------**
 
-First create 50 baskets each having a capacity between 2 and 27, inclusive.
-
-Step 1
+Step 1 : First create 50 baskets each having a capacity between 2 and 27, inclusive.
 
 ```
 rake db:seed
-
 ```
 
-Step 2
-Execute below rake task to add apples into baskets with variety & capacity
+Step 2 : Execute below rake task to add apples into baskets with variety & capacity
 
 ```
 rake apple:add_apple_to_basket['Kashmiri',555]
-
 ```
 
 #### Task 3 - Objects, objects, objects! (Advanced level)
@@ -145,17 +138,14 @@ Bonus: write the solution without using external Ruby libraries.
 **Restrictions**: you are not allowed to run any variations of the method `new` in either IRB shells.
 
 **---------------------------------Solution-----------------------------------------------------------**
-Step 1
 
-In first shell after the Object creation execute below line
+Step 1 : In first shell after the Object creation execute below line
 
 ```
   File.write('apple_obj.txt', Marshal.dump(apple))
 ```
 
-Step 2
-
-In second shell after the class decleration, execute below line
+Step 2 : In second shell after the class decleration, execute below line
 
 ```
   str = File.open('apple_obj.txt').read
